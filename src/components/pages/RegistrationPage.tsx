@@ -1,9 +1,14 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
 import getStripe from '~/lib/getStripe';
+import { loadStripe } from '@stripe/stripe-js';
 
 const RegistrationPage: React.FC = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
   async function handleCheckout() {
-    const stripe = await getStripe();
+    const stripe: any = await getStripe();
+
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
         {
@@ -12,17 +17,12 @@ const RegistrationPage: React.FC = () => {
         },
       ],
       mode: 'subscription',
-      successUrl: `http://localhost:3000/success`,
-      cancelUrl: `http://localhost:3000/cancel`,
+      successUrl: `http://localhost:5173/success`,
+      cancelUrl: `http://localhost:5173/cancel`,
       customerEmail: 'customer@email.com',
     });
     console.warn(error.message);
   }
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    // Handle form submission logic here
-  };
 
   return (
     <div className="flex justify-center items-center h-screen">
