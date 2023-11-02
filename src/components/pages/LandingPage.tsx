@@ -6,7 +6,7 @@ import Location from '../smaller-components/Location';
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-white">
       <div
         className="h-screen bg-cover bg-center flex flex-col justify-center items-center"
         style={{
