@@ -19,7 +19,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Minerva Modern', 'ui-sans-serif', 'system-ui'],
+        sans: 'Minerva Modern, ui-sans-serif, system-ui',
       },
     },
   },

@@ -3,6 +3,7 @@ import React from 'react';
 import ImageSection from '../smaller-components/ImageSection';
 import BibleVerse from '../smaller-components/BibleVerse';
 import Location from '../smaller-components/Location';
+import SchedulePage from './SchedulePage';
 
 const LandingPage: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const LandingPage: React.FC = () => {
         }}
       >
         <div className="text-center text-white">
-          <h1 className="text-5xl font-extrabold mb-4 ">Welcome to Preacher Conference 2023</h1>
+          <h1 className="text-5xl  mb-4 ">Expository Preaching</h1>
           <p className="text-2xl mb-8">Join us from July 21st to 23rd</p>
           <a
             href="#register"
@@ -24,9 +25,9 @@ const LandingPage: React.FC = () => {
           </a>
         </div>
       </div>
-      <BibleVerse />
+      <SchedulePage />
+      {/* <BibleVerse /> */}
       <ImageSection />
-      <Location />
     </div>
   );
 };

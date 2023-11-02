@@ -2,8 +2,8 @@ import React from 'react';
 
 const ImageSection: React.FC = () => {
   return (
-    <div className="w-full flex justify-center">
-      <div className="flex flex-row justify-evenly mt-10 w-full">
+    <div className="w-full flex justify-center p-8">
+      <div className="flex flex-row justify-evenly w-full">
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="w-full h-full relative">
             <img className="w-full h-96 object-cover" src="/bibleStudy.jpg" alt="Placeholder" />
