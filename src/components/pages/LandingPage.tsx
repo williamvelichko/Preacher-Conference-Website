@@ -4,6 +4,7 @@ import ImageSection from '../smaller-components/ImageSection';
 import BibleVerse from '../smaller-components/BibleVerse';
 import Location from '../smaller-components/Location';
 import SchedulePage from './SchedulePage';
+import SpeakersPage from './SpeakersPage';
 
 const LandingPage: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
       <SchedulePage />
+      <SpeakersPage />
       {/* <BibleVerse /> */}
       <ImageSection />
     </div>

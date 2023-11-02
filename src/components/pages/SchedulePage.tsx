@@ -3,7 +3,7 @@ import TitleComponent from '../smaller-components/TitleComponent';
 
 const SchedulePage: React.FC = () => {
   return (
-    <div className="flex flex-col items-center h-screen bg-gray-100 ">
+    <div className="flex flex-col items-center h-screen bg-white ">
       <TitleComponent title={'Schedule'} />
       <div className="flex flex-col w-10/12 p-8 bg-white shadow-lg rounded-lg">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
