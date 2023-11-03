@@ -11,9 +11,9 @@ const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className=" min-h-screen">
       <NavBar />
-      <div className="flex-1 mt-20">{children}</div>
+      <div className="mt-16">{children}</div>
       <Footer />
     </div>
   );

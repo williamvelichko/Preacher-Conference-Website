@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <footer className="bg-gray-800 text-white text-center p-4 mt-auto">
         <div className="flex flex-row justify-evenly">
           <div className="flex flex-col items-center mb-8">
-            <p className="text-lg font-bold">Preacher Conference Ministry</p>
+            <p className="md:text-lg text-sm font-bold">Preacher Conference Ministry</p>
             <p>7635 Auburn Blvd,</p>
             <p>Citrus Heights, CA 95610</p>
             <p>(916) 825-3828</p>

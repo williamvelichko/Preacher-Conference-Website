@@ -1,45 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PopUp from './PopUp';
 
 const NavBar: React.FC = () => {
-  const [isOverlap, setIsOverlap] = useState(false);
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
-  const handleScroll = () => {
-    const bgImage = document.querySelector('.bg-cover');
-
-    if (bgImage) {
-      const rect = bgImage.getBoundingClientRect();
-      setIsOverlap(rect.top < 0);
-    }
+  const handlePopUpToggle = () => {
+    setIsPopUpOpen(!isPopUpOpen);
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <nav
-      className={`fixed h-16 top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        !isOverlap ? 'bg-white text-black' : 'bg-white text-black'
-      }`}
-    >
+    <nav className="fixed  top-0 left-0 right-0 z-50 bg-white text-black w-full">
       <div className="container mx-auto flex justify-between items-center p-4">
         <Link to="/" className="text-2xl font-bold">
           Faithfull Steward
         </Link>
-        <div className="flex space-x-4">
-          <Link to="/schedule" className={`hover:text-gray-300 ${isOverlap ? 'text-black' : 'text-black'}`}>
+        <div className="flex space-x-4 md:hidden">
+          <button onClick={handlePopUpToggle}>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+        <div className="flex flex-row items-center hidden md:flex space-x-6">
+          <Link to="/" className="text-black hover:text-gray-300 transition duration-300">
+            Home
+          </Link>
+          <Link to="/schedule" className="text-black hover:text-gray-300 transition duration-300">
             Schedule
           </Link>
-          <Link to="/speakers" className={`hover:text-gray-300 ${isOverlap ? 'text-black' : 'text-black'}`}>
+          <Link to="/speakers" className="text-black hover:text-gray-300 transition duration-300">
             Speakers
           </Link>
-          <Link to="/register" className={`hover:text-gray-300 ${isOverlap ? 'text-black' : 'text-black'}`}>
-            Registration
+          <Link
+            to="/register"
+            className="text-white bg-gray-500 px-4 py-1 rounded-md hover:bg-gray-600 transition duration-300"
+          >
+            REGISTER KNOW
           </Link>
         </div>
       </div>
+      {isPopUpOpen && <PopUp closePopup={handlePopUpToggle} />}
     </nav>
   );
 };
