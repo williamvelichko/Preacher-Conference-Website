@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { useRoutes, BrowserRouter } from 'react-router-dom';
+import { useRoutes, HashRouter } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import SchedulePage from '../pages/SchedulePage';
@@ -21,11 +21,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
 export const Router = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Layout>
         <InnerRouter />
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
