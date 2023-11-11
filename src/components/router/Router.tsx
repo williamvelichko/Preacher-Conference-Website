@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className=" min-h-screen">
       <NavBar />
       <div className="mt-16">{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
