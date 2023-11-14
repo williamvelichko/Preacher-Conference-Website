@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 function Main() {
   return (
-    <main>
+    <main className="h-screen">
       <Router />
     </main>
   );
