@@ -1,7 +1,16 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import {
+  CardElement,
+  useElements,
+  useStripe,
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
+  PaymentElement,
+} from '@stripe/react-stripe-js';
 import axios from 'axios';
 import React, { useState, FormEvent } from 'react';
 import addUserToFirestore from './smaller-components/addUserToFirebase';
+import SuccessfullRegistration from './smaller-components/successfullRegistration';
 
 interface PaymentFormProps {
   formData: {
@@ -38,11 +47,15 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setLoading(true);
+    setError(null);
+
     if (!stripe || !elements) {
+      setError('Stripe.js has not loaded yet. Please try again.');
+      setLoading(false);
       return;
     }
 
-    // Validate input fields
     const { firstName, lastName, email, phoneNumber, streetAddress, city, state, zipCode } = formData;
 
     if (
@@ -56,6 +69,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
       !zipCode.trim()
     ) {
       setError('All fields are required');
+      setLoading(false);
       setValidation({
         firstName: !firstName.trim(),
         lastName: !lastName.trim(),
@@ -69,77 +83,63 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
       return;
     }
 
-    const cardElement = elements.getElement(CardElement);
+    const cardElement = elements.getElement(CardNumberElement);
 
-    if (cardElement) {
-      setLoading(true);
+    if (!cardElement) {
+      setError('Card information is incomplete. Please check again.');
+      setLoading(false);
+      return;
+    }
 
-      const { error, paymentMethod } = await stripe.createPaymentMethod({
+    try {
+      const paymentMethodResult = await stripe.createPaymentMethod({
         type: 'card',
         card: cardElement,
+        billing_details: {
+          address: {
+            postal_code: zipCode,
+          },
+        },
       });
 
-      if (!error && paymentMethod) {
-        try {
-          const { id } = paymentMethod;
-          const response = await axios.post('http://localhost:4000/payment', {
-            amount: 1000,
-            id,
-            firstName,
-            lastName,
-            email,
-            phoneNumber,
-            streetAddress,
-            city,
-            state,
-            zipCode,
-          });
-
-          if (response.data.success) {
-            console.log('Successful payment');
-            setSuccess(true);
-            const user = {
-              firstName,
-              lastName,
-              email,
-              phoneNumber,
-              streetAddress,
-              city,
-              state,
-              zipCode,
-            };
-            addUserToFirestore(user);
-          }
-        } catch (error) {
-          console.error('Error processing payment:', error);
-          setError('Payment failed. Please try again.');
-        } finally {
-          setLoading(false);
-        }
-      } else {
-        console.error('Stripe error:', error?.message);
-        setError('Payment failed. Please check your card details and try again.');
+      if (paymentMethodResult.error || !paymentMethodResult.paymentMethod) {
+        setError('Payment method creation failed. Please check card details.');
         setLoading(false);
+        return;
       }
+
+      const paymentMethodId = paymentMethodResult.paymentMethod.id;
+
+      const Data = {
+        id: paymentMethodId,
+        amount: 4000,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        streetAddress: formData.streetAddress,
+        city: formData.city,
+        state: formData.state,
+        zipCode: formData.zipCode,
+      };
+
+      const response = await axios.post('http://localhost:4000/payment', Data);
+
+      if (response.data.success) {
+        setSuccess(true);
+        addUserToFirestore(formData);
+      } else {
+        setError('Payment failed. Please try again.');
+      }
+    } catch (error) {
+      setError('Payment failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Custom styles for CardElement
-  const cardElementStyle = {
-    base: {
-      fontSize: '16px',
-      color: '#424770',
-      '::placeholder': {
-        color: '#aab7c4',
-      },
-    },
-    invalid: {
-      color: '#9e2146',
-    },
-  };
-
   return (
-    <div className="bg-white p-8 rounded shadow-md w-full">
+    <div className="bg-white w-full">
       {!success ? (
         <form onSubmit={handleSubmit}>
           <div className="flex sm:flex-row flex-col w-full">
@@ -268,12 +268,21 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
               />
             </div>
           </div>
-          <div className="mb-4">
+
+          <div className="mb-4 sm:flex sm:flex-col">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="card">
               Card Information
             </label>
-            <CardElement options={{ style: cardElementStyle }} />
+
+            <div className="flex sm:flex-row flex-col gap-4">
+              <CardNumberElement className="sm:w-2/3 w-full rounded border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-2" />
+              <div className="flex flex-row sm:w-1/3 w-full gap-4">
+                <CardExpiryElement className="w-full w-1/2 rounded border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-2" />
+                <CardCvcElement className="w-full w-1/2 rounded border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-2" />
+              </div>
+            </div>
           </div>
+
           <button
             type="submit"
             className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -284,9 +293,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </form>
       ) : (
-        <div className="text-center">
-          <h2 className="text-3xl">You Have Been Successfully Registered for Faithful Steward Conference</h2>
-        </div>
+        <SuccessfullRegistration formData={formData} />
       )}
     </div>
   );

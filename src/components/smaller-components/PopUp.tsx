@@ -19,7 +19,7 @@ const PopUp: React.FC<{ closePopup: () => void }> = ({ closePopup }) => {
           className="flex justify-center py-2 text-white bg-gray-500 px-4 py-1 rounded-md hover:bg-gray-600 transition duration-300"
           onClick={closePopup}
         >
-          REGISTER KNOW
+          REGISTER NOW
         </Link>
       </div>
     </div>

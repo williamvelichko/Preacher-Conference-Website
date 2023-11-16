@@ -15,7 +15,7 @@ const LandingPage: React.FC = () => {
       >
         <div className="text-center text-white">
           <h1 className="text-5xl  mb-4 ">Expository Preaching</h1>
-          <p className="text-2xl mb-8">Join us from July 21st to 23rd</p>
+          <p className="text-2xl mb-8">Join us April 13</p>
           <Link
             to="/register"
             className="text-xl text-white bg-gray-500 px-5 py-3 rounded-md hover:bg-gray-600 shadow-lg transition duration-300"

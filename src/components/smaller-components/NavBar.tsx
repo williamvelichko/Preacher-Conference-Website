@@ -10,12 +10,14 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed  top-0 left-0 right-0 z-50 bg-white text-black w-full">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <Link to="/" className="text-2xl font-bold">
-          Faithfull Steward
-        </Link>
-        <div className="flex space-x-4 md:hidden">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white text-black w-full">
+      <div className=" w-full flex flex-row justify-between items-center ">
+        <div className="flex justify-center md:w-1/12 w-3/12">
+          <Link to="/" className="flex items-center ">
+            <img src="logo.png" alt="Your Logo" className="h-16 " />
+          </Link>
+        </div>
+        <div className="flex space-x-4 md:hidden p-2">
           <button onClick={handlePopUpToggle}>
             <svg
               className="w-6 h-6"
@@ -28,7 +30,7 @@ const NavBar: React.FC = () => {
             </svg>
           </button>
         </div>
-        <div className="flex flex-row items-center hidden md:flex space-x-6">
+        <div className="flex flex-row items-center hidden md:flex space-x-6 mr-2">
           <Link to="/" className="text-black hover:text-gray-300 transition duration-300">
             Home
           </Link>
@@ -42,7 +44,7 @@ const NavBar: React.FC = () => {
             to="/register"
             className="text-white bg-gray-500 px-4 py-1 rounded-md hover:bg-gray-600 transition duration-300"
           >
-            REGISTER KNOW
+            REGISTER NOW
           </Link>
         </div>
       </div>
