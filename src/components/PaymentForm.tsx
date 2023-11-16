@@ -139,7 +139,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
   };
 
   return (
-    <div className="bg-white w-full">
+    <div className="h-full w-full flex flex-col justify-center">
       {!success ? (
         <form onSubmit={handleSubmit}>
           <div className="flex sm:flex-row flex-col w-full">
