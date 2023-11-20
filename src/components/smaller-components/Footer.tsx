@@ -1,30 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '/logo.png'; // Replace with your logo path
 
 const Footer: React.FC = () => {
   return (
-    <div className="flex flex-col">
-      <footer className="bg-gray-800 text-white text-center p-4 mt-auto">
-        <div className="flex flex-row justify-evenly">
-          <div className="flex flex-col items-center mb-8">
-            <p className="md:text-lg text-sm font-bold">Preacher Conference Ministry</p>
-            <p>7635 Auburn Blvd,</p>
-            <p>Citrus Heights, CA 95610</p>
-            <p>(916) 825-3828</p>
+    <div className="flex flex-col ">
+      <footer className="bg-gray-800 text-white text-center mt-auto md:h-auto ">
+        <div className="flex md:flex-row flex-col justify-evenly ">
+          <div className="flex flex-col justify-center h-64">
+            <div className="flex flex-col justify-evenly items-center text-gray-300">
+              <img src={logo} alt="Logo" className="w-16 h-16 mb-4 filter brightness-0 invert" />
+              <p className="md:text-lg text-md font-bold mb-2">Faithfull Steward Conference</p>
+              <p className="text-sm">7635 Auburn Blvd,</p>
+              <p className="text-sm">Citrus Heights, CA 95610</p>
+              <p className="text-sm">(916) 825-3828</p>
+            </div>
           </div>
-          <div className="flex flex-col justify-evenly space-x-4 mb-4">
-            <Link to="/" className="hover:text-gray-300">
-              Home
-            </Link>
-            <Link to="/schedule" className="hover:text-gray-300">
-              Schedule
-            </Link>
-            <Link to="/speakers" className="hover:text-gray-300">
-              Speakers
-            </Link>
+          <div className="flex flex-col justify-center md:h-auto h-64 ">
+            <div className="flex flex-col justify-evenly h-2/4">
+              <Link to="/" className="text-sm hover:text-gray-300">
+                Home
+              </Link>
+              <Link to="/schedule" className="text-sm hover:text-gray-300">
+                Schedule
+              </Link>
+              <Link to="/speakers" className="text-sm hover:text-gray-300">
+                Speakers
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="text-sm border-t border-white w-full p-8">&copy; 2023 Preacher Conference</div>
+        <div className="text-xs text-gray-300 border-t border-white w-full py-4">
+          &copy; 2024 Faithfull Steward Conference
+        </div>
       </footer>
     </div>
   );
