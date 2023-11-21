@@ -8,22 +8,33 @@ const LandingPage: React.FC = () => {
   return (
     <div className="bg-white">
       <div
-        className="h-screen bg-cover bg-center flex flex-col justify-center items-center"
+        className="h-screen bg-cover bg-center flex flex-col justify-center items-center relative"
         style={{
           backgroundImage: `url('/mainBiblePic.jpg')`,
         }}
       >
-        <div className="text-center text-white">
-          <h1 className="text-5xl  mb-4 ">Expository Preaching</h1>
-          <p className="text-2xl mb-8">Join us April 13</p>
+        {/* Semi-transparent overlay */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+
+        <div className="text-center text-white relative z-10">
+          <h1 className="sm:text-5xl text-4xl mb-4 italic">Expository Preaching</h1>
+          <div className="flex justify-center items-center">
+            <img
+              src="logo.png"
+              alt="Your Logo"
+              className="w-16 h-16 mb-4 filter brightness-0 invert" // Changed class to adjust the color
+            />
+          </div>
+          <p className="sm:text-xl text-lg mb-8">April 13, 2024</p>
           <Link
             to="/register"
-            className="text-xl text-white bg-gray-500 px-5 py-3 rounded-md hover:bg-gray-600 shadow-lg transition duration-300"
+            className="sm:text-xl text:lg text-white bg-gray-500 px-5 py-3 rounded-md hover:bg-gray-600 shadow-lg transition duration-300"
           >
             Register Now
           </Link>
         </div>
       </div>
+
       <SpeakersPage />
       <SchedulePage />
       <ImageSection />
