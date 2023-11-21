@@ -13,8 +13,7 @@ const LandingPage: React.FC = () => {
           backgroundImage: `url('/mainBiblePic.jpg')`,
         }}
       >
-        {/* Semi-transparent overlay */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-40"></div>
 
         <div className="text-center text-white relative z-10">
           <h1 className="sm:text-5xl text-4xl mb-4 italic">Expository Preaching</h1>
