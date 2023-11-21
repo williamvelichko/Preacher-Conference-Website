@@ -6,6 +6,7 @@ import SchedulePage from '../pages/SchedulePage';
 import SpeakersPage from '../pages/SpeakersPage';
 import NavBar from '../smaller-components/NavBar';
 import Footer from '../smaller-components/Footer';
+import ScrollToTop from './ScrollToTop';
 
 const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p>;
 
@@ -22,6 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 export const Router = () => {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Layout>
         <InnerRouter />
       </Layout>
