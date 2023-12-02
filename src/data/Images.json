@@ -1,0 +1,22 @@
+[
+  {
+    "src": "/bibleStudy.jpg",
+    "alt": "Bible Study Placeholder",
+    "text": "Equipping"
+  },
+  {
+    "src": "/fellowship.jpg",
+    "alt": "Fellowship Placeholder",
+    "text": "Fellowship"
+  },
+  {
+    "src": "/coffee.jpg",
+    "alt": "Coffee Placeholder",
+    "text": "Refreshments"
+  },
+  {
+    "src": "/truth.jpg",
+    "alt": "Truth Placeholder",
+    "text": "Truth"
+  }
+]
