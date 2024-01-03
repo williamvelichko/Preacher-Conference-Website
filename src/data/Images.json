@@ -1,21 +1,21 @@
 [
   {
-    "src": "/bibleStudy.jpg",
+    "src": "/bibleStudy.png",
     "alt": "Bible Study Placeholder",
     "text": "Equipping"
   },
   {
-    "src": "/fellowship.jpg",
+    "src": "/fellowship.png",
     "alt": "Fellowship Placeholder",
     "text": "Fellowship"
   },
   {
-    "src": "/coffee.jpg",
+    "src": "/coffee.png",
     "alt": "Coffee Placeholder",
     "text": "Refreshments"
   },
   {
-    "src": "/truth.jpg",
+    "src": "/truth.png",
     "alt": "Truth Placeholder",
     "text": "Truth"
   }
