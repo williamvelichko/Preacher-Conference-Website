@@ -4,27 +4,27 @@
     "firstName": "Voddie",
     "lastName": "Baucham",
     "about": "Pastor",
-    "profilePic": "/voddie-pic.jpg"
+    "profilePic": "/voddie-pic.png"
   },
   {
     "id": 2,
     "firstName": "John",
     "lastName": "Macarthur",
     "about": "Pastor",
-    "profilePic": "/JohnMacarthurProfile.jpg"
+    "profilePic": "/JohnMacarthurProfile.png"
   },
   {
     "id": 3,
     "firstName": "Paul",
     "lastName": "Washer",
     "about": "Pastor",
-    "profilePic": "/PaulWasher.jpg"
+    "profilePic": "/PaulWasher.png"
   },
   {
     "id": 4,
     "firstName": "Alistair",
     "lastName": "Begg",
     "about": "Pastor",
-    "profilePic": "/alistair-begg.jpg"
+    "profilePic": "/alistair-begg.png"
   }
 ]

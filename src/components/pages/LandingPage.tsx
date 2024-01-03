@@ -11,6 +11,8 @@ const LandingPage: React.FC = () => {
         className="h-screen bg-cover bg-center flex flex-col justify-center items-center relative"
         style={{
           backgroundImage: `url('/mainBiblePic.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
         <div className="absolute inset-0 bg-black opacity-40"></div>
