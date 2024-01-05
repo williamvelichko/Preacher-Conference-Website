@@ -3,6 +3,16 @@
     "firstName": "Roman",
     "lastName": "Balatskiy",
     "about": "Pastor",
-    "profilePic": "/roman.png"
+    "jpg": "/RomanB.jpg",
+    "webp": "/RomanB.webp",
+    "alt": "Roman Balatskiy Profile Pic"
+  },
+  {
+    "firstName": "Roman",
+    "lastName": "Balatskiy",
+    "about": "Deacon",
+    "jpg": "/RomanV.jpg",
+    "webp": "/RomanV.webp",
+    "alt": "Roman Vermenchuk Profile Pic"
   }
 ]

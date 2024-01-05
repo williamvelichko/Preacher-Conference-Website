@@ -1,5 +1,6 @@
 import React from 'react';
 import images from '../../data/Images.json'; // Adjust the path as per your file structure
+import ImgNextGen from '../images/ImageFormat';
 
 const ImageSection: React.FC = () => {
   return (
@@ -8,7 +9,13 @@ const ImageSection: React.FC = () => {
         {images.map((image, index) => (
           <div key={index} className="w-full sm:w-1/2 xl:w-1/2 p-2">
             <div className="w-full h-96 relative">
-              <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+              {/* <img src={image.src} alt={image.alt} className="w-full h-full object-cover" /> */}
+              <ImgNextGen
+                srcWebp={image.webp}
+                fallback={image.jpg}
+                alt={image.alt}
+                styling={'w-full h-full object-cover'}
+              />
               <div className="flex flex-col justify-end items-start absolute inset-0 bg-black bg-opacity-30 p-4 text-white">
                 <h3 className="text-4xl md:text-4xl font-bold">{image.text}</h3>
               </div>

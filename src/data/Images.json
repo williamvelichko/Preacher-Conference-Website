@@ -1,21 +1,25 @@
 [
   {
-    "src": "/bibleStudy.png",
+    "jpg": "/bibleStudy.jpg",
+    "webp": "/bibleStudy.webp",
     "alt": "Bible Study Placeholder",
     "text": "Equipping"
   },
   {
-    "src": "/fellowship.png",
+    "jpg": "/fellowship.jpg",
+    "webp": "/fellowship.webp",
     "alt": "Fellowship Placeholder",
     "text": "Fellowship"
   },
   {
-    "src": "/coffee.png",
+    "jpg": "/coffee.jpg",
+    "webp": "/coffee.webp",
     "alt": "Coffee Placeholder",
     "text": "Refreshments"
   },
   {
-    "src": "/truth.png",
+    "jpg": "/truth.jpg",
+    "webp": "/truth.webp",
     "alt": "Truth Placeholder",
     "text": "Truth"
   }
