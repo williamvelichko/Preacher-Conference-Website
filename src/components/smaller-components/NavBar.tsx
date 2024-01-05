@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white text-black w-full">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white text-black w-full ">
       <div className=" w-full flex flex-row justify-between items-center ">
         <div className="flex justify-center md:w-1/12 w-3/12">
           <Link to="/" className="flex items-center ">

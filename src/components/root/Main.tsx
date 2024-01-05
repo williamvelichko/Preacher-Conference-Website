@@ -2,7 +2,7 @@ import { Router } from '~/components/router/Router';
 
 function Main() {
   return (
-    <main className="h-screen">
+    <main className="min-h-screen">
       <Router />
     </main>
   );
