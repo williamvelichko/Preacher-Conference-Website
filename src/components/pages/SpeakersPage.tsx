@@ -8,7 +8,7 @@ const SpeakersPage: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center">
       <TitleComponent title={'Speakers'} />
       <div className="w-full h-full flex items-center justify-center m-auto">
-        <div className="flex flex-col sm:flex-row w-full justify-evenly items-center">
+        <div className="flex flex-col sm:flex-row w-full justify-evenly items-center sm:m-0 my-11">
           {Speakers.map((speaker, index) => (
             <div key={index} className="flex flex-col items-center p-4 bg-white sm:w-2/4 w-full">
               <ImgNextGen
