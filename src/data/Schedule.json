@@ -1,8 +1,9 @@
 [
-  { "time": "10:00 AM", "title": "Introduction" },
-  { "time": "11:00 AM", "title": "Session 1" },
-  { "time": "12:00 PM", "title": "Session 2" },
+  { "time": "10:00 AM", "title": "Introduction", "topic": "The Necessity of Preaching" },
+  { "time": "11:00 AM", "title": "Session 1", "topic": "Called to Preach" },
+  { "time": "12:00 PM", "title": "Session 2", "topic": "Preachers Study the Text" },
   { "time": "1:00 PM", "title": "Lunch" },
-  { "time": "3:00 PM", "title": "Session 3" },
-  { "time": "4:00 PM", "title": "Session 4" }
+  { "time": "2:00 PM", "title": "Session 3", "topic": "Exalting God in Preaching" },
+  { "time": "3:30 PM", "title": "Session 4", "topic": "Faithful Preaching" },
+  { "time": "4:30 Pm", "title": "Q&A Session" }
 ]

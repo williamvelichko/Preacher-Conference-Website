@@ -137,6 +137,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
       };
 
       const response = await axios.post('https://faithfull-steward-server-368f84d7a4ff.herokuapp.com/payment', Data);
+      //const response = await axios.post('http://localhost:4000/payment', Data);
 
       if (response.data.success) {
         setSuccess(true);

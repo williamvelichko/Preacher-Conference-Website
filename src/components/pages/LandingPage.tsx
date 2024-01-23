@@ -3,11 +3,13 @@ import ImageSection from '../smaller-components/ImageSection';
 import SchedulePage from './SchedulePage';
 import SpeakersPage from './SpeakersPage';
 import MainBackground from '../smaller-components/MainBackground';
+import BibleVerse from '../smaller-components/BibleVerse';
 
 const LandingPage: React.FC = () => {
   return (
     <div className="bg-white">
       <MainBackground />
+      <BibleVerse />
       <SpeakersPage />
       <SchedulePage />
       <ImageSection />

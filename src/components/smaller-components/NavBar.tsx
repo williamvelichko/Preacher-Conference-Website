@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PopUp from './PopUp';
+import ImgNextGen from '../images/ImageFormat';
 
 const NavBar: React.FC = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
@@ -14,7 +15,8 @@ const NavBar: React.FC = () => {
       <div className=" w-full flex flex-row justify-between items-center ">
         <div className="flex justify-center md:w-1/12 w-3/12">
           <Link to="/" className="flex items-center ">
-            <img src="logo.png" alt="Your Logo" className="h-16 " />
+            {/* <img src="logo.png" alt="Your Logo" className="h-16 " /> */}
+            <ImgNextGen srcWebp={'/logo.png'} alt={'logo'} styling={'h-16'} />
           </Link>
         </div>
         <div className="flex space-x-4 md:hidden p-2">

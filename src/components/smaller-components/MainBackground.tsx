@@ -14,9 +14,9 @@ const MainBackground: React.FC = () => {
 
       <div className="absolute inset-0 flex items-center justify-center text-center text-white z-10">
         <div>
-          <h1 className="sm:text-5xl text-4xl mb-4 italic">Expository Preaching</h1>
+          <h1 className="sm:text-5xl text-4xl mb-4 italic">Faithful Preaching</h1>
           <div className="flex justify-center items-center">
-            <img src="logo.png" alt="Your Logo" className="w-16 h-16 mb-4 filter brightness-0 invert" />
+            <ImgNextGen srcWebp={'/logo.png'} alt={'logo'} styling={'w-16 h-16 mb-4 filter brightness-0 invert'} />
           </div>
           <p className="sm:text-xl text-lg mb-8">April 13, 2024</p>
           <Link

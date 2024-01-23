@@ -175,12 +175,6 @@ focus:outline-none focus:shadow-outline ${validation.firstName && 'border-red-50
               } focus:border-blue-500 focus:ring focus:ring-blue-200 p-2`}
             />
           </div>
-
-          {/* <CardNumberElement className="sm:w-2/3 w-full rounded border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-2" />
-          <div className="flex flex-row sm:w-1/3 w-full gap-4">
-            <CardExpiryElement className="w-full w-1/2 rounded border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-2" />
-            <CardCvcElement className="w-full w-1/2 rounded border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-2" />
-          </div> */}
         </div>
       </div>
 

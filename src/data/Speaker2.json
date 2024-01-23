@@ -2,7 +2,7 @@
   {
     "firstName": "Roman",
     "lastName": "Balatskiy",
-    "about": "Pastor",
+    "about": "Pastor/Preacher",
     "jpg": "/RomanB.jpg",
     "webp": "/RomanB.webp",
     "alt": "Roman Balatskiy Profile Pic"
@@ -10,7 +10,7 @@
   {
     "firstName": "Roman",
     "lastName": "Vermenchuk",
-    "about": "Deacon",
+    "about": "Deacon/Preacher",
     "jpg": "/RomanV.jpg",
     "webp": "/RomanV.webp",
     "alt": "Roman Vermenchuk Profile Pic"

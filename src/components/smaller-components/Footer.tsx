@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '/logo.png'; // Replace with your logo path
+import ImgNextGen from '../images/ImageFormat';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="flex md:flex-row flex-col justify-evenly ">
           <div className="flex flex-col justify-center h-64">
             <div className="flex flex-col justify-evenly items-center text-gray-300">
-              <img src={logo} alt="Logo" className="w-16 h-16 mb-4 filter brightness-0 invert" />
+              <ImgNextGen srcWebp={'/logo.png'} alt={'logo'} styling={'w-16 h-16 mb-4 filter brightness-0 invert'} />
               <p className="md:text-lg text-md font-bold mb-2">Faithfull Steward Conference</p>
               <p className="text-sm">7635 Auburn Blvd,</p>
               <p className="text-sm">Citrus Heights, CA 95610</p>
