@@ -3,11 +3,14 @@ import { loadStripe } from '@stripe/stripe-js';
 import React, { useState } from 'react';
 import PaymentForm from './PaymentForm';
 import { PaymentElement } from '@stripe/react-stripe-js';
+require('dotenv').config();
+const stripePublicKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
-const PUBLIC_KEY =
-  'pk_test_51O75VEAtkvkkH2vrOvnN7tRST3WPZhgXgwMIy0OFP2C3XdR6LYh03L2DyeIrjHgYbIlSSqDIGsLplWh58YE0oDs100oKWic5UW';
+if (!stripePublicKey) {
+  throw new Error('Stripe public key not found in environment variables.');
+}
 
-const stripeTestPromise = loadStripe(PUBLIC_KEY);
+const stripeTestPromise = loadStripe(stripePublicKey);
 
 export default function StripeContainer() {
   const [formData, setFormData] = useState({

@@ -7,6 +7,7 @@ import SpeakersPage from '../pages/SpeakersPage';
 import NavBar from '../smaller-components/NavBar';
 import Footer from '../smaller-components/Footer';
 import ScrollToTop from './ScrollToTop';
+import NewRegistrationForm from '../pages/NewRegistrationForm';
 
 const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p>;
 
