@@ -3,8 +3,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import React, { useState } from 'react';
 import PaymentForm from './PaymentForm';
 import { PaymentElement } from '@stripe/react-stripe-js';
-require('dotenv').config();
-const stripePublicKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+
+const stripePublicKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
 
 if (!stripePublicKey) {
   throw new Error('Stripe public key not found in environment variables.');
