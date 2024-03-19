@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { db } from '../../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore'; // Import necessary Firestore functions
 
 interface props {
   formData: any;
 }
 
 const SuccessfullRegistration: React.FC<props> = ({ formData }) => {
+  const [conferenceDetails, setConferenceDetails] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchConferenceDetails = async () => {
+      try {
+        const conferenceRef = doc(db, 'conferences_Information'); // Create a reference to the conference document
+        const conferenceSnapshot = await getDoc(conferenceRef); // Get the conference document
+        if (conferenceSnapshot.exists()) {
+          setConferenceDetails(conferenceSnapshot.data()); // Set the conference details state
+        } else {
+          console.log('No conference data available');
+        }
+      } catch (error) {
+        console.error('Error fetching conference data:', error);
+      }
+    };
+
+    fetchConferenceDetails();
+  }, []);
+  console.log(conferenceDetails);
   return (
     <div className="text-center mt-12 ">
       <h2 className="sm:text-4xl text-2xl font-bold text-blue-900 mb-4">Registration Confirmed</h2>

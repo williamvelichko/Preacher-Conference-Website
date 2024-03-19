@@ -1,8 +1,11 @@
 import React from 'react';
 import ImgNextGen from '../images/ImageFormat';
 import { Link } from 'react-router-dom';
+import { db } from '../../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore'; // Import necessary Firestore functions
 
 const MainBackground: React.FC = () => {
+  console.log(collection(db, 'Conference_Information'));
   return (
     <div className="h-screen bg-cover bg-center flex flex-col justify-center items-center relative">
       <ImgNextGen
