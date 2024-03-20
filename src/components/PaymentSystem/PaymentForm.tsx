@@ -4,6 +4,7 @@ import React, { useState, FormEvent } from 'react';
 import addUserToFirestore from '../smaller-components/addUserToFirebase';
 import SuccessfullRegistration from './SuccessfullRegistration';
 import MicroForm from './MicroForm';
+import { useFetchData } from '../store/FetchData';
 
 interface PaymentFormProps {
   formData: {
@@ -20,6 +21,7 @@ interface PaymentFormProps {
 }
 
 const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }) => {
+  const { conferenceData } = useFetchData();
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -125,7 +127,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ formData, handleInputChange }
 
       const Data = {
         id: paymentMethodId,
-        amount: 4000,
+        amount: conferenceData.Price * 100,
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,

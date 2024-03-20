@@ -5,7 +5,6 @@ import { useFetchData } from '../store/FetchData';
 
 const MainBackground: React.FC = () => {
   const { conferenceData } = useFetchData();
-
   return (
     <div className="h-screen bg-cover bg-center flex flex-col justify-center items-center relative">
       <ImgNextGen

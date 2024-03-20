@@ -6,7 +6,7 @@ interface props {
 }
 
 const SuccessfullRegistration: React.FC<props> = ({ formData }) => {
-  const { conferenceData, loading } = useFetchData();
+  const { conferenceData } = useFetchData();
 
   return (
     <div className="text-center mt-12 ">
