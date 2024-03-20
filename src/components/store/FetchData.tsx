@@ -1,22 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { db } from '../../firebase';
-import { doc, getDoc, collection } from 'firebase/firestore';
+import { doc, getDocs, collection } from 'firebase/firestore';
 
-interface ConferenceData {
-  name: string;
-  date: string;
-  venue: string;
-}
-
-interface FetchDataContext {
-  conferenceData: ConferenceData | null;
-  loading: boolean;
-}
-
-const FetchDataContext = createContext<FetchDataContext>({
-  conferenceData: null,
-  loading: true,
-});
+const FetchDataContext = createContext<any>(null);
 
 export const useFetchData = () => {
   return useContext(FetchDataContext);
@@ -27,20 +13,25 @@ interface FetchDataProviderProps {
 }
 
 export const FetchDataProvider: React.FC<FetchDataProviderProps> = ({ children }) => {
-  const [conferenceData, setConferenceData] = useState<ConferenceData | null>(null);
+  const [conferenceData, setConferenceData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchConferenceData = async () => {
       try {
-        // Fetch conference data from Firebase
-        // Assuming 'conferences' is the collection and 'conferenceId' is the document ID
-        // let conferenceRef = await collection(db, 'Conference_Information');
-        // if (conferenceRef.exists()) {
-        //   setConferenceData(conferenceRef.data() as ConferenceData);
-        // } else {
-        //   console.log('No conference data available');
-        // }
+        const conferenceCollectionRef = collection(db, 'Conference_Information');
+        const querySnapshot = await getDocs(conferenceCollectionRef);
+
+        if (!querySnapshot.empty) {
+          const conferenceData = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+
+          setConferenceData(conferenceData[0]);
+        } else {
+          console.log('No conference data available');
+        }
       } catch (error) {
         console.error('Error fetching conference data:', error);
       } finally {

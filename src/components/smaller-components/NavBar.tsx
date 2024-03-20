@@ -38,9 +38,9 @@ const NavBar: React.FC = () => {
           <Link to="/schedule" className="text-black hover:text-gray-300 transition duration-300">
             Schedule
           </Link>
-          <Link to="/speakers" className="text-black hover:text-gray-300 transition duration-300">
+          {/* <Link to="/speakers" className="text-black hover:text-gray-300 transition duration-300">
             Speakers
-          </Link>
+          </Link> */}
           <Link
             to="/register"
             className="text-white bg-gray-500 px-4 py-1 rounded-md hover:bg-gray-600 transition duration-300"
