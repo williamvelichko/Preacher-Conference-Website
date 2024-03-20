@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ImgNextGen from '../images/ImageFormat';
+import { useFetchData } from '../store/FetchData';
 
 const Footer: React.FC = () => {
+  const { conferenceData } = useFetchData();
+
   return (
     <div className="flex flex-col ">
       <footer className="bg-gray-800 text-white text-center mt-auto md:h-auto ">
@@ -11,9 +14,8 @@ const Footer: React.FC = () => {
             <div className="flex flex-col justify-evenly items-center text-gray-300">
               <ImgNextGen srcWebp={'/logo.png'} alt={'logo'} styling={'w-16 h-16 mb-4 filter brightness-0 invert'} />
               <p className="md:text-lg text-md font-bold mb-2">Faithfull Steward Conference</p>
-              <p className="text-sm">7635 Auburn Blvd,</p>
-              <p className="text-sm">Citrus Heights, CA 95610</p>
-              <p className="text-sm">(916) 825-3828</p>
+              <p className="text-sm">{conferenceData.Address}</p>
+              <p className="text-sm">{conferenceData.PhoneNumber}</p>
             </div>
           </div>
           <div className="flex flex-col justify-center md:h-auto h-64 ">
@@ -31,7 +33,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="text-xs text-gray-300 border-t border-white w-full py-4">
-          &copy; 2024 Faithfull Steward Conference
+          &copy; {conferenceData.Year} Faithfull Steward Conference
         </div>
       </footer>
     </div>
