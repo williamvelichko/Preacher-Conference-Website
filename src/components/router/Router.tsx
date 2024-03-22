@@ -9,14 +9,19 @@ import Footer from '../smaller-components/Footer';
 import ScrollToTop from './ScrollToTop';
 import NewRegistrationForm from '../pages/NewRegistrationForm';
 import { useFetchData } from '../store/FetchData';
+import Loader from '../smaller-components/Loader';
 
-const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p>;
+const Loading = () => <p className="p-4 w-full h-full text-center">Loading....</p>;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { loading } = useFetchData();
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return (
+  //     <div>
+  //       <Loader />
+  //     </div>
+  //   );
+  // }
   return (
     <div className="h-full flex flex-col justify-between">
       <NavBar />
