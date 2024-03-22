@@ -1,7 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { db } from '../../firebase';
-import { doc, getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection } from 'firebase/firestore';
 
+interface ConferenceData {
+  Address: string;
+  Date: string;
+  PhoneNumber: string;
+  Price: number;
+  Title: string;
+  Venue: string;
+  Year: string;
+}
 const FetchDataContext = createContext<any>(null);
 
 export const useFetchData = () => {
@@ -13,7 +22,15 @@ interface FetchDataProviderProps {
 }
 
 export const FetchDataProvider: React.FC<FetchDataProviderProps> = ({ children }) => {
-  const [conferenceData, setConferenceData] = useState<any>(null);
+  const [conferenceData, setConferenceData] = useState<ConferenceData>({
+    Address: '',
+    Date: '',
+    PhoneNumber: '',
+    Price: 0,
+    Title: '',
+    Venue: '',
+    Year: '',
+  });
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -23,12 +40,9 @@ export const FetchDataProvider: React.FC<FetchDataProviderProps> = ({ children }
         const querySnapshot = await getDocs(conferenceCollectionRef);
 
         if (!querySnapshot.empty) {
-          const conferenceData = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-
-          setConferenceData(conferenceData[0]);
+          const [firstDocument] = querySnapshot.docs;
+          const conferenceDataFromFirestore = firstDocument.data() as ConferenceData;
+          setConferenceData(conferenceDataFromFirestore);
         } else {
           console.log('No conference data available');
         }

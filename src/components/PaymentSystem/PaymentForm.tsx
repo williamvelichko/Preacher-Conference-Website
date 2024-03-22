@@ -1,7 +1,7 @@
 import { useElements, useStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import React, { useState, FormEvent } from 'react';
-import addUserToFirestore from '../smaller-components/addUserToFirebase';
+import addUserToFirestore from '../services/addUserToFirebase';
 import SuccessfullRegistration from './SuccessfullRegistration';
 import MicroForm from './MicroForm';
 import { useFetchData } from '../store/FetchData';
