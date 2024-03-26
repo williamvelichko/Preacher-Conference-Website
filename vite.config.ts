@@ -9,7 +9,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          landingPage: ['./src/pages/LandingPage.tsx'],
+          landingPage: ['./src/components/pages/LandingPage'],
         },
       },
     },
