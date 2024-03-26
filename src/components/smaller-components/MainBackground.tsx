@@ -1,24 +1,29 @@
 import React from 'react';
-import ImgNextGen from '../images/ImageFormat';
 import { Link } from 'react-router-dom';
 import { useFetchData } from '../store/FetchData';
+import mainBiblePicWebp from '/mainBiblePic.webp';
+import mainBiblePicJpg from '/mainBiblePic.jpg';
 
 const MainBackground: React.FC = () => {
   const { conferenceData } = useFetchData();
+
   return (
     <div className="h-screen bg-cover bg-center flex flex-col justify-center items-center relative">
-      <ImgNextGen
-        srcWebp={'/mainBiblePic.webp'}
-        fallback={'/mainBiblePic.jpg'}
-        alt={'Background Image'}
-        styling={'w-full h-screen object-cover absolute top-0 left-0 z-0'}
-      />
+      <picture>
+        <source srcSet={mainBiblePicWebp} type="image/webp" />
+        <img
+          src={mainBiblePicJpg}
+          alt="Background Image"
+          className="w-full h-screen object-cover absolute top-0 left-0 z-0"
+          loading="lazy"
+        />
+      </picture>
 
       <div className="absolute inset-0 flex items-center justify-center text-center text-white z-10">
         <div>
           <h1 className="sm:text-5xl text-4xl mb-4 italic">{conferenceData.Title}</h1>
           <div className="flex justify-center items-center">
-            <ImgNextGen srcWebp={'/logo.png'} alt={'logo'} styling={'w-16 h-16 mb-4 filter brightness-0 invert'} />
+            <img src="/logo.png" alt="Logo" className="w-16 h-16 mb-4 filter brightness-0 invert" loading="lazy" />
           </div>
           <p className="sm:text-xl text-lg mb-8">{conferenceData.Date}</p>
           <Link
