@@ -3,7 +3,7 @@ import { useRoutes, HashRouter } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import SchedulePage from '../pages/SchedulePage';
-import SpeakersPage from '../pages/SpeakersPage';
+// import SpeakersPage from '../pages/SpeakersPage';
 import NavBar from '../smaller-components/NavBar';
 import Footer from '../smaller-components/Footer';
 import ScrollToTop from './ScrollToTop';
@@ -46,7 +46,7 @@ const InnerRouter = () => {
     { path: '/', element: <LandingPage /> },
     { path: '/register', element: <RegistrationPage /> },
     { path: '/schedule', element: <SchedulePage /> },
-    { path: '/speakers', element: <SpeakersPage /> },
+    // { path: '/speakers', element: <SpeakersPage /> },
   ];
   const element = useRoutes(routes);
   return <Suspense fallback={<Loading />}>{element}</Suspense>;
