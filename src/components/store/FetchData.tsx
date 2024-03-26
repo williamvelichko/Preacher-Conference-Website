@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { db } from '../../firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import React, { createContext, useContext, useState } from 'react';
+// import { db } from '../../firebase';
+// import { getDocs, collection } from 'firebase/firestore';
 
 interface ConferenceData {
   Address: string;
