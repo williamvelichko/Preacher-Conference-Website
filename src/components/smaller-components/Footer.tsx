@@ -26,9 +26,9 @@ const Footer: React.FC = () => {
               <Link to="/schedule" className="text-sm hover:text-gray-300">
                 Schedule
               </Link>
-              <Link to="/speakers" className="text-sm hover:text-gray-300">
+              {/* <Link to="/speakers" className="text-sm hover:text-gray-300">
                 Speakers
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
