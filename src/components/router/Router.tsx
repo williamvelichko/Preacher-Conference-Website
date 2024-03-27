@@ -7,13 +7,13 @@ import SchedulePage from '../pages/SchedulePage';
 import NavBar from '../smaller-components/NavBar';
 import Footer from '../smaller-components/Footer';
 import ScrollToTop from './ScrollToTop';
-import { useFetchData } from '../store/FetchData';
-// import Loader from '../smaller-components/Loader';
+// import { useFetchData } from '../store/FetchData';
+import Loader from '../smaller-components/Loader';
 
-const Loading = () => <p className="p-4 w-full h-full text-center">Loading....</p>;
+const Loading = () => <Loader />;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { loading } = useFetchData();
+  // const { loading } = useFetchData();
   // if (loading) {
   //   return (
   //     <div>

@@ -3,21 +3,30 @@ import { Link } from 'react-router-dom';
 import { useFetchData } from '../store/FetchData';
 import mainBiblePicWebp from '/mainBiblePic.webp';
 import mainBiblePicJpg from '/mainBiblePic.jpg';
+import ImgNextGen from '../images/ImageFormat';
 
 const MainBackground: React.FC = () => {
   const { conferenceData } = useFetchData();
 
+  // Preload the image
+  const preloadImage = (src: string) => {
+    const img = new Image();
+    img.src = src;
+  };
+
+  React.useEffect(() => {
+    preloadImage(mainBiblePicJpg);
+    preloadImage(mainBiblePicWebp);
+  }, []);
+
   return (
     <div className="h-screen bg-cover bg-center flex flex-col justify-center items-center relative">
-      <picture>
-        <source srcSet={mainBiblePicWebp} type="image/webp" />
-        <img
-          src={mainBiblePicJpg}
-          alt="Background Image"
-          className="w-full h-screen object-cover absolute top-0 left-0 z-0"
-          loading="lazy"
-        />
-      </picture>
+      <ImgNextGen
+        srcWebp={mainBiblePicWebp}
+        fallback={mainBiblePicJpg}
+        alt="Background Image"
+        styling="w-full h-screen object-cover absolute top-0 left-0 z-0"
+      />
 
       <div className="absolute inset-0 flex items-center justify-center text-center text-white z-10">
         <div>

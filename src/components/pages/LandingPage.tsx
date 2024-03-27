@@ -1,9 +1,9 @@
-import React, { lazy } from 'react';
-const ImageSection = lazy(() => import('../smaller-components/ImageSection'));
-const SchedulePage = lazy(() => import('./SchedulePage'));
-// const SpeakersPage = lazy(() => import('./SpeakersPage'));
-const MainBackground = lazy(() => import('../smaller-components/MainBackground'));
-const BibleVerse = lazy(() => import('../smaller-components/BibleVerse'));
+import React from 'react';
+import ImageSection from '../smaller-components/ImageSection';
+import SchedulePage from './SchedulePage';
+// import SpeakersPage from './SpeakersPage';
+import MainBackground from '../smaller-components/MainBackground';
+import BibleVerse from '../smaller-components/BibleVerse';
 
 const LandingPage: React.FC = () => {
   return (

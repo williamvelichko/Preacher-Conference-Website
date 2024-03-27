@@ -14,7 +14,7 @@ const ImgNextGen: React.FC<props> = ({ srcWebp, srcJp2, fallback, alt, styling, 
       <source srcSet={srcWebp} type="image/webp" />
       <source srcSet={srcJp2} type="image/jp2" />
       <source srcSet={fallback} type="image/jpg" />
-      <img src={fallback} alt={alt} {...props} className={styling} loading="lazy" />
+      <img src={fallback} alt={alt} {...props} className={styling} />
     </picture>
   );
 };
