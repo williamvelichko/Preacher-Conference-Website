@@ -36,11 +36,12 @@
 //   );
 // }
 
+// StripeContainer.js
+
+import React, { useState, useEffect, Suspense } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
-import React, { useState, useEffect } from 'react';
 import PaymentForm from './PaymentForm';
-import getStripe from '~/lib/getStripe'; // Import the getStripe function
-import { Stripe } from '@stripe/stripe-js'; // Import Stripe type if necessary
+import { Stripe } from '@stripe/stripe-js';
 
 export default function StripeContainer() {
   const [stripe, setStripe] = useState<Stripe | null>(null);
@@ -48,8 +49,11 @@ export default function StripeContainer() {
   useEffect(() => {
     const initializeStripe = async () => {
       try {
-        const stripeInstance = await getStripe(); // Load Stripe asynchronously
+        // Dynamically import getStripe function
+        const getStripeModule = await import('~/lib/getStripe');
+        const stripeInstance = await getStripeModule.default(); // Call the function
         setStripe(stripeInstance); // Set the Stripe object in state
+        console.log('Stripe lazy loading successful!');
       } catch (error) {
         console.error('Error initializing Stripe:', error);
       }
@@ -57,7 +61,6 @@ export default function StripeContainer() {
 
     initializeStripe(); // Call the initialization function
   }, []);
-
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -76,11 +79,16 @@ export default function StripeContainer() {
 
   return (
     <div>
-      {stripe && ( // Render only if Stripe is loaded
-        <Elements stripe={stripe}>
-          <PaymentForm formData={formData} handleInputChange={handleInputChange} />
-        </Elements>
-      )}
+      <Suspense fallback={<div>Loading Stripe...</div>}>
+        {stripe && (
+          <div>
+            <Elements stripe={stripe}>
+              <PaymentForm formData={formData} handleInputChange={handleInputChange} />
+            </Elements>
+          </div>
+        )}
+      </Suspense>
+      {!stripe && <div>Loading Stripe...</div>}
     </div>
   );
 }
