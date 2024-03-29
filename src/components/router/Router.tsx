@@ -7,20 +7,11 @@ import SchedulePage from '../pages/SchedulePage';
 import NavBar from '../smaller-components/NavBar';
 import Footer from '../smaller-components/Footer';
 import ScrollToTop from './ScrollToTop';
-// import { useFetchData } from '../store/FetchData';
 import Loader from '../smaller-components/Loader';
 
 const Loading = () => <Loader />;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  // const { loading } = useFetchData();
-  // if (loading) {
-  //   return (
-  //     <div>
-  //       <Loader />
-  //     </div>
-  //   );
-  // }
   return (
     <div className="h-full flex flex-col justify-between">
       <NavBar />

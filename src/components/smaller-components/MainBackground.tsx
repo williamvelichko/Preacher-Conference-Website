@@ -8,7 +8,6 @@ import ImgNextGen from '../images/ImageFormat';
 const MainBackground: React.FC = () => {
   const { conferenceData } = useFetchData();
 
-  // Preload the image
   const preloadImage = (src: string) => {
     const img = new Image();
     img.src = src;
