@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
         <div className="flex justify-center md:w-1/12 w-3/12">
           <Link to="/" className="flex items-center">
             {/* <ImgNextGen srcWebp={LogoWebp} fallback={LogoPng} alt={'logo'} styling={'h-16'} /> */}
-            <img src={LogoSvg} alt="Logo" className="h-16" loading="lazy" />
+            <img src={LogoSvg} alt="Logo" className="h-16" />
           </Link>
         </div>
         <div className="flex space-x-4 md:hidden p-2">
