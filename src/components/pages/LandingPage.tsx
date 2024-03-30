@@ -7,7 +7,7 @@ import BibleVerse from '../smaller-components/BibleVerse';
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white flex flex-col h-full">
       <MainBackground />
       <BibleVerse />
       {/* <SpeakersPage /> */}

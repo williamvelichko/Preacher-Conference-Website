@@ -31,7 +31,7 @@ const MainBackground: React.FC = () => {
         <div>
           <h1 className="sm:text-5xl text-4xl mb-4 italic">{conferenceData.Title}</h1>
           <div className="flex justify-center items-center">
-            <img src="/logo.png" alt="Logo" className="w-16 h-16 mb-4 filter brightness-0 invert" loading="lazy" />
+            <img src="/logo.svg" alt="Logo" className="w-16 h-16 mb-4 filter brightness-0 invert" loading="lazy" />
           </div>
           <p className="sm:text-xl text-lg mb-8">{conferenceData.Date}</p>
           <Link

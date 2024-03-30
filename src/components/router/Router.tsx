@@ -13,7 +13,7 @@ const Loading = () => <Loader />;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-full flex flex-col justify-between">
+    <div className="h-full w-full flex flex-col justify-between">
       <NavBar />
       <div className="mt-16">{children}</div>
       <Footer />

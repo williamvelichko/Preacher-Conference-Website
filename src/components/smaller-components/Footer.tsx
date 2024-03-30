@@ -12,7 +12,9 @@ const Footer: React.FC = () => {
         <div className="flex md:flex-row flex-col justify-evenly ">
           <div className="flex flex-col justify-center h-64">
             <div className="flex flex-col justify-evenly items-center text-gray-300">
-              <ImgNextGen srcWebp={'/logo.png'} alt={'logo'} styling={'w-16 h-16 mb-4 filter brightness-0 invert'} />
+              {/* <ImgNextGen srcWebp={'/logo.png'} alt={'logo'} styling={'w-16 h-16 mb-4 filter brightness-0 invert'} /> */}
+              <img src={'/logo.svg'} alt="Logo" className="w-16 h-16 mb-4 filter brightness-0 invert" loading="lazy" />
+
               <p className="md:text-lg text-md font-bold mb-2">Faithfull Steward Conference</p>
               <p className="text-sm">{conferenceData.Address}</p>
               <p className="text-sm">{conferenceData.PhoneNumber}</p>
