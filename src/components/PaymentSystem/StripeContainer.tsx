@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import PaymentForm from './PaymentForm';
 import { Stripe } from '@stripe/stripe-js';
+import Loader from '../smaller-components/Loader';
 
 export default function StripeContainer() {
   const [stripe, setStripe] = useState<Stripe | null>(null);
@@ -38,7 +39,7 @@ export default function StripeContainer() {
 
   return (
     <div>
-      <Suspense fallback={<div>Loading Stripe...</div>}>
+      <Suspense fallback={<Loader />}>
         {stripe && (
           <div>
             <Elements stripe={stripe}>
@@ -47,7 +48,7 @@ export default function StripeContainer() {
           </div>
         )}
       </Suspense>
-      {!stripe && <div>Loading Stripe...</div>}
+      {!stripe && <Loader />}
     </div>
   );
 }
