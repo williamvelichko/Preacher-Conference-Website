@@ -15,14 +15,14 @@ const SuccessfullRegistration: React.FC<props> = ({ formData }) => {
         Dear {formData.firstName} {formData.lastName}
       </p>
       <p className="text-base text-gray-700 mb-6 ">
-        Thank you for registering for the FaithFull Steward Conference.
+        Thank you for registering for the FaithFul Steward Conference.
         <br />
         We're thrilled to have you join us.
       </p>
       <div className="text-left border border-gray-200 p-4 rounded-lg mb-6">
         <h3 className="text-lg font-semibold text-blue-900 mb-2">Your Conference Details:</h3>
         <p className=" text-sm text-gray-700">
-          <strong>Event:</strong> FaithFull Steward Conference {conferenceData.Year}
+          <strong>Event:</strong> FaithFul Steward Conference {conferenceData.Year}
           <br />
           <strong>Date:</strong> {conferenceData.Date}
           <br />

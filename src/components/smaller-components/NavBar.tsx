@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PopUp from './PopUp';
-import ImgNextGen from '../images/ImageFormat';
-import LogoPng from '/logo.png';
-import LogoWebp from '/logo.webp';
+
 import LogoSvg from '/logo.svg';
 
 const NavBar: React.FC = () => {
@@ -12,22 +10,12 @@ const NavBar: React.FC = () => {
   const handlePopUpToggle = () => {
     setIsPopUpOpen(!isPopUpOpen);
   };
-  // useEffect(() => {
-  //   preloadImage(LogoPng);
-  //   preloadImage(LogoWebp);
-  // }, []);
-
-  // const preloadImage = (src: string) => {
-  //   const img = new Image();
-  //   img.src = src;
-  // };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white text-black w-full ">
       <div className=" w-full flex flex-row justify-between items-center ">
         <div className="flex justify-center md:w-1/12 w-3/12">
           <Link to="/" className="flex items-center">
-            {/* <ImgNextGen srcWebp={LogoWebp} fallback={LogoPng} alt={'logo'} styling={'h-16'} /> */}
             <img src={LogoSvg} alt="Logo" className="h-16" />
           </Link>
         </div>
