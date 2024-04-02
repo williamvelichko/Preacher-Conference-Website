@@ -26,7 +26,7 @@ export const FetchDataProvider: React.FC<FetchDataProviderProps> = ({ children }
     Address: '7635 Auburn Blvd, Citrus Heights, CA 95610',
     Date: 'June 29. 2024',
     PhoneNumber: '(916) 825-3828',
-    Price: 1,
+    Price: 40,
     Title: 'Faithful Preaching',
     Venue: 'Bible Babtist Church, Sacramento',
     Year: '2024',
